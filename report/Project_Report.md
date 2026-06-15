@@ -24,7 +24,36 @@ The goal of this system is to address CLO2:P3: synthesizing exploratory data ana
 
 ---
 
-## 2. Methodology
+## 2. Interactive Web Dashboard Interface (Screenshots)
+To display real-time interactive dashboards to business managers, we developed a PHP Laravel 9 web application connected to a MySQL database, presenting 17 dynamic interactive charts. Below are the clean, error-free interface screenshots representing the primary administrative views of the developed platform:
+
+### 2.1 Dashboard Home / Main Overview
+Displays critical performance cards, total revenues, daily sales timelines, and quick summary breakdowns.
+![Dashboard Home](dashboard_home.png)
+
+### 2.2 Customer Demographic Analysis Page
+Provides customer signup distributions, average satisfaction, age-group breakdowns, and gender segment splits.
+![Customer Analysis](media_customer_analysis.png)
+
+### 2.3 Sales Analytics Page
+Details city-by-city checkouts, category popularity, price margins, and order volume breakdowns over time.
+![Sales Analytics](media_sales_analytics.png)
+
+### 2.4 Data Explorer Grid
+Allows administrators to browse raw database transactions, search, filter, and extract custom records directly.
+![Data Explorer](media_data_explorer.png)
+
+### 2.5 EDA Dashboard - Statistical Overview
+Includes correlations heatmaps and age histograms fitted with Gaussian distributions inside the web app.
+![EDA Correlation Heatmap](media_eda_correlation.png)
+
+### 2.6 K-Means Segmentation Dashboard Page
+Displays cluster details, the optimal Elbow point plot, and interactive cluster groupings for target marketing.
+![EDA K-Means Clustering](media_eda_clustering.png)
+
+---
+
+## 3. Methodology
 The analytical pipeline of this system follows a structured data science workflow, divided into the following phases:
 
 ```
@@ -67,7 +96,7 @@ The analytical pipeline of this system follows a structured data science workflo
                             +-----------------------------+
 ```
 
-### Phase 2.1: Data Preprocessing & Cleaning
+### Phase 3.1: Data Preprocessing & Cleaning
 1. **Handling Missing Values**: Standard forward-fill (`.ffill()`) method was applied to handle any gaps in sequential columns, ensuring no data loss.
 2. **Outlier Detection and Removal**: The Interquartile Range (IQR) method was applied to the target metric `total_amount`. Outliers were defined as:
    $$\text{Lower Bound} = Q1 - 1.5 \times \text{IQR}$$
@@ -77,25 +106,25 @@ The analytical pipeline of this system follows a structured data science workflo
    - Extracted temporal units: `order_hour`, `day_of_week` (Monday-Sunday), and `month_year` from raw string timestamps.
    - Categorized age into groups: `18-25`, `26-35`, `36-45`, `46-55`, `56-65`.
 
-### Phase 2.2: Statistical Analysis & Probability Distributions
+### Phase 3.2: Statistical Analysis & Probability Distributions
 - **Normality Testing**: Analyzed the distribution of customer ages using histograms and fitted normal curves. Conducted a formal **Shapiro-Wilk test** to determine if age follows a Gaussian distribution.
 - **Categorical Association (Chi-Square Test)**: Conducted a Chi-Square test of independence to assess if there is a significant relationship between `gender` and `discount_applied` usage.
 
-### Phase 2.3: Customer Segmentation (K-Means Clustering)
+### Phase 3.3: Customer Segmentation (K-Means Clustering)
 - **Feature Standardization**: Scaled continuous features (`age`, `total_amount`, `session_duration_min`, `num_previous_purchases`, `satisfaction_score`) using `StandardScaler` to bring them onto a common mean-zero scale.
 - **Optimal Cluster Selection**: Applied the **Elbow Method** by computing the Within-Cluster Sum of Squares (WCSS) for $K \in [1, 10]$ to find the inflection point, identifying **$K = 3$** as the optimal cluster count.
 - **Clustering**: Fitted the K-Means algorithm to segment customers into three distinct behavioral cohorts.
 
 ---
 
-## 3. Visualizations & Interpretations
+## 4. Visualizations & Interpretations
 Below are the actual visualizations generated from the Jupyter Notebook cells along with their interpretation and decision-making insights.
 
-### 3.1 Total Sales by Product Category (Bar Chart)
+### 4.1 Total Sales by Product Category (Bar Chart)
 ![Total Sales by Category](01_bar_category_sales.png)
 * **Insight**: Electronics and Clothing emerge as the dominant categories in terms of revenue, representing high-volume core categories for Pakistani e-commerce platforms. Books and Home Appliances generate stable secondary revenues.
 
-### 3.2 Revenue by City (Horizontal Bar)
+### 4.2 Revenue by City (Horizontal Bar)
 ![Revenue by City](02_hbar_city_revenue.png)
 * **Insight**: Metropolitan hubs like Karachi, Lahore, and Islamabad generate the highest share of revenue. However, cities like Peshawar and Faisalabad show significant transaction volumes, highlighting the growth of e-commerce in Tier-2 Pakistani cities.
 
@@ -192,7 +221,7 @@ Below are the actual visualizations generated from the Jupyter Notebook cells al
 
 ---
 
-## 4. Results & Insights
+## 5. Results & Insights
 * **Demographic Stability**: E-commerce adoption in Pakistan is widely spread across age cohorts and genders.
 * **The Rise of Digital Wallets**: The high adoption rate of EasyPaisa and JazzCash (exceeding Credit Card and Bank Transfers combined) demonstrates that mobile-first financial solutions are critical for maximizing customer conversion.
 * **Operational Weekend Spikes**: E-commerce activity increases on weekends, indicating that operations (customer support, delivery dispatches) must be optimized to handle higher weekend volumes.
@@ -203,7 +232,7 @@ Below are the actual visualizations generated from the Jupyter Notebook cells al
 
 ---
 
-## 5. Conclusion & Future Work
+## 6. Conclusion & Future Work
 ### Conclusion
 This project successfully establishes an advanced Data Visualization and Analytics System. By combining statistical validation, machine learning segmentation, and interactive visual reporting in both Jupyter Notebook and Laravel, we extracted meaningful insights regarding Pakistani e-commerce behavior. All design elements strictly adhered to professional presentation guidelines.
 
@@ -214,7 +243,7 @@ This project successfully establishes an advanced Data Visualization and Analyti
 
 ---
 
-## 6. References
+## 7. References
 1. Nelson, D. (2020). *Data Visualization in Python* (1st ed.). Daniel Nelson Publishing.
 2. McKinney, W. (2022). *Python for Data Analysis* (3rd ed.). O'Reilly Media.
 3. Pedregosa, F., et al. (2011). Scikit-learn: Machine Learning in Python. *Journal of Machine Learning Research*, 12, 2825-2830.
