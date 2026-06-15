@@ -72,7 +72,7 @@ The analytical pipeline of this system follows a structured data science workflo
 2. **Outlier Detection and Removal**: The Interquartile Range (IQR) method was applied to the target metric `total_amount`. Outliers were defined as:
    $$\text{Lower Bound} = Q1 - 1.5 \times \text{IQR}$$
    $$\text{Upper Bound} = Q3 + 1.5 \times \text{IQR}$$
-   A total of **93 extreme outliers** (e.g., abnormally large order amounts indicating system test files or anomalies) were removed, leaving **1,541 clean records** for analysis.
+   A total of **93 extreme outliers** were removed, leaving **1,541 clean records** for analysis.
 3. **Feature Engineering**:
    - Extracted temporal units: `order_hour`, `day_of_week` (Monday-Sunday), and `month_year` from raw string timestamps.
    - Categorized age into groups: `18-25`, `26-35`, `36-45`, `46-55`, `56-65`.
@@ -88,6 +88,8 @@ The analytical pipeline of this system follows a structured data science workflo
 
 ### Phase 2.4: Dashboard Development (Laravel 9 + Chart.js)
 To translate the static analysis into a real-time, interactive business tool, we built a PHP Laravel web application connected to a MySQL database, mirroring all analysis results using interactive JavaScript charts (Chart.js) in a modern "NeoBrutalism" design layout.
+
+![Dashboard Overview](dashboard_overview.png)
 
 ---
 
@@ -206,7 +208,36 @@ The Jupyter Notebook contains **24 distinct visualizations** split across catego
 
 ---
 
-## 5. Conclusion & Future Work
+## 5. Interactive Dashboard Interface Screenshots
+To visually display the analytical results to business managers, we developed a dynamic dashboard with multiple pages:
+
+### 5.1 Dashboard Home / Main Overview
+Displays the active sales stats cards and quick visual charts.
+![Dashboard Home](dashboard_home.png)
+
+### 5.2 Customer Demographic Analysis
+Displays customer registration rates, age segments, gender ratios, and a list of top customers.
+![Customer Analysis](media_customer_analysis.png)
+
+### 5.3 Sales Analytics
+Breaks down revenue generation by city, category, and order volume.
+![Sales Analytics](media_sales_analytics.png)
+
+### 5.4 Data Explorer Grid
+Enables transactional lookup and row filtering.
+![Data Explorer](media_data_explorer.png)
+
+### 5.5 EDA Dashboard (Statistical Analysis & Correlation)
+Shows correlation heatmaps, box plots, and density charts in the web application.
+![EDA Correlation Heatmap](media_eda_correlation.png)
+
+### 5.6 K-Means Segmentation Dashboard
+Shows the Elbow Curve and the final K-Means customer cluster visualizations.
+![EDA K-Means Clustering](media_eda_clustering.png)
+
+---
+
+## 6. Conclusion & Future Work
 ### Conclusion
 This project successfully establishes an advanced Data Visualization and Analytics System. By combining statistical validation, machine learning segmentation, and interactive visual reporting in both Jupyter Notebook and Laravel, we extracted meaningful insights regarding Pakistani e-commerce behavior. All design elements strictly adhered to professional presentation guidelines.
 
@@ -217,7 +248,7 @@ This project successfully establishes an advanced Data Visualization and Analyti
 
 ---
 
-## 6. References
+## 7. References
 1. Nelson, D. (2020). *Data Visualization in Python* (1st ed.). Daniel Nelson Publishing.
 2. McKinney, W. (2022). *Python for Data Analysis* (3rd ed.). O'Reilly Media.
 3. Pedregosa, F., et al. (2011). Scikit-learn: Machine Learning in Python. *Journal of Machine Learning Research*, 12, 2825-2830.
