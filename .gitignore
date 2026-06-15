@@ -1,0 +1,21 @@
+# Laravel
+dashboard/vendor/
+dashboard/.env
+dashboard/node_modules/
+dashboard/storage/
+dashboard/bootstrap/cache/
+dashboard/*.log
+
+# Python
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+*.DS_Store
+
+# OS
+Thumbs.db
+.DS_Store
+
+# Temporary files
+*.tmp
+*.bak
