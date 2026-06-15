@@ -33,7 +33,7 @@ Displays critical performance cards, total revenues, daily sales timelines, and 
 
 ### 2.2 Customer Demographic Analysis Page
 Provides customer signup distributions, average satisfaction, age-group breakdowns, and gender segment splits.
-![Customer Analysis](media_customer_analysis.png)
+![Customer Analysis](media_customer_analysis_clean.png)
 
 ### 2.3 Sales Analytics Page
 Details city-by-city checkouts, category popularity, price margins, and order volume breakdowns over time.
