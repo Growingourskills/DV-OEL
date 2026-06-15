@@ -26,6 +26,10 @@
                 <i data-lucide="trending-up"></i>
                 <span>Sales</span>
             </a>
+            <a href="{{ route('eda') }}" class="sidebar-link {{ request()->routeIs('eda') ? 'active' : '' }}">
+                <i data-lucide="line-chart"></i>
+                <span>EDA Analytics</span>
+            </a>
             <a href="{{ route('explorer') }}" class="sidebar-link {{ request()->routeIs('explorer') ? 'active' : '' }}">
                 <i data-lucide="database"></i>
                 <span>Data Explorer</span>
