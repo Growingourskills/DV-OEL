@@ -293,7 +293,7 @@ We plot:
 - 7-day rolling average (smoother trend)
 - 30-day rolling average (even smoother — shows the big picture)
 
-**Monthly Revenue:** `resample('M')` groups by month.
+**Monthly Revenue:** `resample('ME')` groups by month.
 
 **Day of Week:** Groups by Monday, Tuesday, etc. to find patterns.
 
