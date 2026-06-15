@@ -86,113 +86,108 @@ The analytical pipeline of this system follows a structured data science workflo
 - **Optimal Cluster Selection**: Applied the **Elbow Method** by computing the Within-Cluster Sum of Squares (WCSS) for $K \in [1, 10]$ to find the inflection point, identifying **$K = 3$** as the optimal cluster count.
 - **Clustering**: Fitted the K-Means algorithm to segment customers into three distinct behavioral cohorts.
 
-### Phase 2.4: Dashboard Development (Laravel 9 + Chart.js)
-To translate the static analysis into a real-time, interactive business tool, we built a PHP Laravel web application connected to a MySQL database, mirroring all analysis results using interactive JavaScript charts (Chart.js) in a modern "NeoBrutalism" design layout.
-
-![Dashboard Overview](dashboard_overview.png)
-
 ---
 
 ## 3. Visualizations & Interpretations
-The Jupyter Notebook contains **24 distinct visualizations** split across categorical distributions, demographic correlations, time-series, statistical, and clustering plots.
+Below are the actual visualizations generated from the Jupyter Notebook cells along with their interpretation and decision-making insights.
 
-### 3.1 Total Sales by Product Category (Matplotlib Bar Chart)
-* **Description**: Compares total revenue across product categories.
+### 3.1 Total Sales by Product Category (Bar Chart)
+![Total Sales by Category](01_bar_category_sales.png)
 * **Insight**: Electronics and Clothing emerge as the dominant categories in terms of revenue, representing high-volume core categories for Pakistani e-commerce platforms. Books and Home Appliances generate stable secondary revenues.
 
-### 3.2 Revenue by City (Matplotlib Horizontal Bar)
-* **Description**: Shows total sales broken down by the top 10 Pakistani cities.
+### 3.2 Revenue by City (Horizontal Bar)
+![Revenue by City](02_hbar_city_revenue.png)
 * **Insight**: Metropolitan hubs like Karachi, Lahore, and Islamabad generate the highest share of revenue. However, cities like Peshawar and Faisalabad show significant transaction volumes, highlighting the growth of e-commerce in Tier-2 Pakistani cities.
 
-### 3.3 Monthly Sales Trend (Matplotlib Line Chart)
-* **Description**: A continuous line chart of sales over time.
+### 3.3 Monthly Sales Trend (Line Chart)
+![Monthly Sales Trend](03_line_monthly_sales.png)
 * **Insight**: Reveals strong seasonal patterns, with clear sales peaks in November and December (matching winter festivals and end-of-year sales events) followed by a post-holiday drop in January.
 
-### 3.4 Weekly Order Count with Moving Average (Matplotlib Line Chart)
-* **Description**: Tracks order volumes weekly, overlaying a 4-week simple moving average (SMA).
+### 3.4 Weekly Order Count with Moving Average (Line Chart)
+![Weekly Order Count](04_line_weekly_orders.png)
 * **Insight**: The moving average smooths out short-term noise, indicating a consistent upward trend in weekly transaction volumes across the entire timeframe.
 
-### 3.5 Correlation Heatmap (Seaborn Heatmap)
-* **Description**: Displays correlation coefficients between numerical characteristics.
+### 3.5 Correlation Heatmap
+![Correlation Heatmap](05_heatmap_correlation.png)
 * **Insight**: Most features display low linear correlations, confirming that purchase behavior is multi-dimensional. Weak positive correlations exist between session duration and order amount, suggesting that longer browsing sessions lead to larger purchases.
 
-### 3.6 Customer Age vs Total Spending (Matplotlib Scatter Plot)
-* **Description**: Explores relationship between age and customer spending.
+### 3.6 Customer Age vs Total Spending (Scatter Plot)
+![Customer Age vs Total Spending](06_scatter_age_spending.png)
 * **Insight**: The scatter plot shows a uniform distribution of transactions across age bands, demonstrating that both younger (18-25) and older (50+) demographics actively engage in high-value e-commerce transactions.
 
-### 3.7 Session Duration vs Amount (Matplotlib Scatter Plot)
-* **Description**: Plots session duration in minutes against the total checkout amount.
+### 3.7 Session Duration vs Amount (Scatter Plot)
+![Session Duration vs Amount](07_scatter_session_amount.png)
 * **Insight**: A dense cluster is visible at lower session durations, but the highest value checkouts occur when session durations exceed 30 minutes, indicating that prolonged customer engagement correlates with larger purchases.
 
-### 3.8 Payment Method Distribution (Matplotlib Pie Chart)
-* **Description**: Shows the market share of payment methods.
+### 3.8 Payment Method Distribution (Pie Chart)
+![Payment Method Distribution](08_pie_payment.png)
 * **Insight**: Digital wallets like JazzCash and EasyPaisa account for over 38% of total transactions, reflecting a massive shift towards mobile financial services in Pakistan, running parallel to traditional Cash on Delivery (COD).
 
-### 3.9 Customer Gender Distribution (Matplotlib Pie Chart)
-* **Description**: Compares male vs female customer distribution.
+### 3.9 Customer Gender Distribution (Pie Chart)
+![Customer Gender Distribution](09_pie_gender.png)
 * **Insight**: The customer base is almost evenly split (50.4% Female, 49.6% Male), indicating that e-commerce marketing and inventory selection should cater equally to both genders.
 
-### 3.10 Unit Price by Category (Seaborn Box Plot)
-* **Description**: Highlights the spread, median, and outliers of pricing across product lines.
+### 3.10 Unit Price by Category (Box Plot)
+![Unit Price by Category](10_box_price_category.png)
 * **Insight**: Electronics has the widest price distribution and highest median unit price, while Books show the tightest, lowest price ranges.
 
-### 3.11 Satisfaction Score by Payment Method (Seaborn Box Plot)
-* **Description**: Evaluates customer satisfaction scores (1 to 5) across payment gateways.
+### 3.11 Satisfaction Score by Payment Method (Box Plot)
+![Satisfaction Score by Payment Method](11_box_satisfaction_payment.png)
 * **Insight**: Digital methods like Credit Card and Bank Transfers show slightly higher median satisfaction ratings compared to Cash on Delivery (COD), likely due to smoother refund processes and immediate transactional feedback.
 
-### 3.12 Customer Age Distribution (Seaborn Hist + KDE)
-* **Description**: Examines the demographic distribution of shoppers.
+### 3.12 Customer Age Distribution (Histogram + KDE)
+![Customer Age Distribution](12_dist_age.png)
 * **Insight**: The distribution shows a multi-modal pattern, indicating that e-commerce is popular among young students (18-24) as well as middle-aged professionals (35-45) in Pakistan.
 
-### 3.13 Distribution of Order Amounts (Seaborn Hist + Normal Fit)
-* **Description**: Shows the frequency of transaction totals.
+### 3.13 Distribution of Order Amounts (Histogram)
+![Distribution of Order Amounts](13_dist_amount.png)
 * **Insight**: Heavily skewed to the right (positive skew), indicating that the vast majority of orders consist of low-to-medium ticket items, while high-ticket orders are less frequent but crucial for revenue.
 
-### 3.14 Spending by Gender (Seaborn Violin Plot)
-* **Description**: Visualizes probability density of total spending across genders.
+### 3.14 Spending by Gender (Violin Plot)
+![Spending by Gender](14_violin_gender_spending.png)
 * **Insight**: The shape of the violins for Male and Female is extremely similar, showing that gender does not significantly influence the distribution of order values.
 
-### 3.15 Orders by Day of Week (Seaborn Count Plot)
-* **Description**: Analyzes order frequencies across days of the week.
+### 3.15 Orders by Day of Week (Count Plot)
+![Orders by Day of Week](15_count_dayofweek.png)
 * **Insight**: Transaction counts peak on weekends (Friday through Sunday), indicating that customers prefer shopping during their leisure time. Marketing promotions should target these days for maximum conversion.
 
-### 3.16 Category Sales by Gender (Seaborn Stacked Bar)
-* **Description**: Evaluates categorical preferences across genders.
+### 3.16 Category Sales by Gender (Stacked Bar)
+![Category Sales by Gender](16_stacked_category_gender.png)
 * **Insight**: Both genders show similar category preferences. Electronics is popular with male shoppers, while Clothing has a slightly higher concentration of female shoppers.
 
-### 3.17 Orders by Device Type (Matplotlib Bar Chart)
-* **Description**: Identifies primary customer devices.
+### 3.17 Orders by Device Type (Bar Chart)
+![Orders by Device Type](17_bar_device.png)
 * **Insight**: Mobile transactions constitute the majority of orders (nearly 40%), signifying that mobile optimization is a critical requirement for e-commerce platforms.
 
-### 3.18 K-Means Elbow Curve (Matplotlib Line Plot)
-* **Description**: WCSS plotted against cluster count.
+### 3.18 K-Means Elbow Curve (Line Plot)
+![K-Means Elbow Curve](18_elbow_method.png)
 * **Insight**: The curve shows a distinct "elbow" bend at $K = 3$, confirming that dividing the customer base into 3 segments minimizes within-cluster variance without overcomplicating the model.
 
-### 3.19 K-Means Customer Segments (Matplotlib Scatter Plot)
-* **Description**: Visualizes the 3 K-Means clusters in a 2D feature projection.
+### 3.19 K-Means Customer Segments (Scatter Plot)
+![K-Means Customer Segments](19_kmeans_clusters.png)
 * **Insight**: Shows three distinct customer segments:
   - **Cluster 0 (Budget/New Shoppers)**: Lower spending, lower frequency.
   - **Cluster 1 (Average/Consistent Buyers)**: Mid-range spending with steady transactions.
   - **Cluster 2 (VIP/High-Value Customers)**: High spending, long session durations, high satisfaction.
 
-### 3.20 Daily Sales with 7-day Rolling Average (Matplotlib Time Series)
-* **Description**: Analyzes daily revenue trends with a 7-day rolling average to filter noise.
+### 3.20 Daily Sales with 7-day Rolling Average (Time Series)
+![Daily Sales with Rolling Average](20_timeseries_daily.png)
 * **Insight**: Identifies frequent sharp spikes that correlate with payday cycles (start/end of months) and local shopping festivals.
 
-### 3.21 Monthly Sales Over Time (Matplotlib Time Series)
-* **Description**: Visualizes cumulative monthly sales values.
+### 3.21 Monthly Sales Over Time (Time Series)
+![Monthly Sales Over Time](21_timeseries_monthly.png)
 * **Insight**: Confirms stable growth throughout 2024, culminating in a record high Q4 before stabilizing in early 2025.
 
-### 3.22 Daily Sales Patterns by Day of Week (Seaborn Box Plot)
-* **Description**: Evaluates variance in sales volumes across weekdays.
+### 3.22 Daily Sales Patterns by Day of Week (Box Plot)
+![Daily Sales Patterns by Day of Week](22_timeseries_dayofweek.png)
 * **Insight**: Sunday and Friday show higher median daily sales than Monday and Tuesday.
 
-### 3.23 Normality Fit Over Age Distribution (Matplotlib Fit Plot)
-* **Description**: Fits a Gaussian normal curve over the age distribution histogram.
+### 3.23 Normality Fit Over Age Distribution (Fit Plot)
+![Normality Fit Over Age Distribution](23_stat_normal_fit.png)
 * **Insight**: The curve visually demonstrates that age deviates slightly from a pure normal distribution, showing a slightly flatter peak (platykurtic distribution).
 
-### 3.24 Multi-feature Pair Plot (Seaborn Pairplot)
-* **Description**: A grid of scatter plots and histograms exploring interactions across all numerical fields.
+### 3.24 Multi-feature Pair Plot (Pair Plot)
+![Multi-feature Pair Plot](24_pairplot.png)
 * **Insight**: Visualizes relationships simultaneously, confirming that variables are largely independent of one another.
 
 ---
@@ -208,36 +203,7 @@ The Jupyter Notebook contains **24 distinct visualizations** split across catego
 
 ---
 
-## 5. Interactive Dashboard Interface Screenshots
-To visually display the analytical results to business managers, we developed a dynamic dashboard with multiple pages:
-
-### 5.1 Dashboard Home / Main Overview
-Displays the active sales stats cards and quick visual charts.
-![Dashboard Home](dashboard_home.png)
-
-### 5.2 Customer Demographic Analysis
-Displays customer registration rates, age segments, gender ratios, and a list of top customers.
-![Customer Analysis](media_customer_analysis.png)
-
-### 5.3 Sales Analytics
-Breaks down revenue generation by city, category, and order volume.
-![Sales Analytics](media_sales_analytics.png)
-
-### 5.4 Data Explorer Grid
-Enables transactional lookup and row filtering.
-![Data Explorer](media_data_explorer.png)
-
-### 5.5 EDA Dashboard (Statistical Analysis & Correlation)
-Shows correlation heatmaps, box plots, and density charts in the web application.
-![EDA Correlation Heatmap](media_eda_correlation.png)
-
-### 5.6 K-Means Segmentation Dashboard
-Shows the Elbow Curve and the final K-Means customer cluster visualizations.
-![EDA K-Means Clustering](media_eda_clustering.png)
-
----
-
-## 6. Conclusion & Future Work
+## 5. Conclusion & Future Work
 ### Conclusion
 This project successfully establishes an advanced Data Visualization and Analytics System. By combining statistical validation, machine learning segmentation, and interactive visual reporting in both Jupyter Notebook and Laravel, we extracted meaningful insights regarding Pakistani e-commerce behavior. All design elements strictly adhered to professional presentation guidelines.
 
@@ -248,7 +214,7 @@ This project successfully establishes an advanced Data Visualization and Analyti
 
 ---
 
-## 7. References
+## 6. References
 1. Nelson, D. (2020). *Data Visualization in Python* (1st ed.). Daniel Nelson Publishing.
 2. McKinney, W. (2022). *Python for Data Analysis* (3rd ed.). O'Reilly Media.
 3. Pedregosa, F., et al. (2011). Scikit-learn: Machine Learning in Python. *Journal of Machine Learning Research*, 12, 2825-2830.
