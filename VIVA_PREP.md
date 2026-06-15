@@ -120,7 +120,7 @@ This is cleaning the data. Four steps:
 
 **Step 1 — Missing Values**
 ```python
-df = df.fillna(method='ffill')
+df = df.ffill()
 ```
 "Fill forward" — if a cell is empty, copy the value from the row above it.
 
