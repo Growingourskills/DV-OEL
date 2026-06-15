@@ -1,6 +1,6 @@
 <div align="center">
 
-# 📊 E-commerce Customer Behavior Analytics
+#  E-commerce Customer Behavior Analytics
 
 **Data Visualization Lab — Open Ended Lab Project**
 
@@ -20,7 +20,7 @@
 
 ---
 
-## 📁 Project Structure
+##  Project Structure
 
 ```
 DV-Lab-OEL/
@@ -56,7 +56,7 @@ DV-Lab-OEL/
 
 ---
 
-## 🗃️ Dataset
+##  Dataset
 
 **File:** `course-work/dataset/ecommerce_data.csv`
 
@@ -94,7 +94,7 @@ DV-Lab-OEL/
 
 ---
 
-## 📓 Part 1: Jupyter Notebook
+##  Part 1: Jupyter Notebook
 
 ### What It Covers
 
@@ -167,7 +167,7 @@ All charts will show on screen. PNG files will be saved in `course-work/visualiz
 
 ---
 
-## 🖥️ Part 2: Laravel Dashboard
+##  Part 2: Laravel Dashboard
 
 A NeoBrutalism-styled web dashboard built with PHP Laravel, MySQL, HTML, CSS, JavaScript, Chart.js, and Lucide Icons.
 
@@ -245,7 +245,7 @@ Open your browser and go to: **http://localhost:8000**
 
 ---
 
-## 🛠️ Tech Stack
+##  Tech Stack
 
 | Tool | Purpose |
 |------|---------|
@@ -266,7 +266,7 @@ Open your browser and go to: **http://localhost:8000**
 
 ---
 
-## 📂 Submission Deliverables
+##  Submission Deliverables
 
 - [x] Jupyter Notebook (`.ipynb`)
 - [x] Dataset (`ecommerce_data.csv`)
@@ -275,7 +275,7 @@ Open your browser and go to: **http://localhost:8000**
 
 ---
 
-## 📚 References
+##  References
 
 - Pandas Documentation: https://pandas.pydata.org/docs/
 - Matplotlib Documentation: https://matplotlib.org/
